@@ -11,7 +11,11 @@ type PageTitleProps = {
 export const PageTitle = ({ title }: PageTitleProps) => {
   const { toggleSidebar } = useSidebar();
 
-  const isMac = /Mac|iPod|iPhone|iPad/.test(navigator.platform);
+  const hasWindow = typeof window !== "undefined";
+
+  const isMac = /Mac|iPod|iPhone|iPad/.test(
+    hasWindow ? window.navigator.platform : "",
+  );
 
   return (
     <div className="mb-6 flex items-center justify-start gap-2">

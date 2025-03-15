@@ -6,7 +6,8 @@ import {
 import { PageTitle } from "@/components/shared/page-title";
 import { DatabaseZap, FolderKey, UserCog, UsersRound } from "lucide-react";
 
-export default function DashboardPage() {
+export default async function DashboardPage() {
+  await new Promise((resolve) => setTimeout(resolve, 1000));
   return (
     <>
       <PageTitle title="Dashboard" />

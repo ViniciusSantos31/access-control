@@ -20,7 +20,7 @@ export const NavItems = () => {
     },
     {
       label: "Banco de dados",
-      href: "/dashboard/settings",
+      href: "/databases",
       icon: Database,
     },
     {
