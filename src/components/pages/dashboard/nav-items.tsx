@@ -10,7 +10,7 @@ import { usePathname } from "next/navigation";
 
 export const NavItems = () => {
   const pathname = usePathname();
-  const { open } = useSidebar();
+  const { open, isMobile, setOpenMobile } = useSidebar();
 
   const navItems = [
     {
@@ -20,7 +20,7 @@ export const NavItems = () => {
     },
     {
       label: "Banco de dados",
-      href: "/dashboard/settings",
+      href: "/databases",
       icon: Database,
     },
     {
@@ -41,21 +41,29 @@ export const NavItems = () => {
         const isActive = pathname.startsWith(item.href);
 
         return (
-          <Link key={item.href} href={item.href}>
-            <Tooltip content={item.label} key={item.href} hiddenTooltip={open}>
+          <Link
+            key={item.href}
+            href={item.href}
+            onClick={() => setOpenMobile(false)}
+          >
+            <Tooltip
+              content={item.label}
+              key={item.href}
+              hiddenTooltip={open || isMobile}
+            >
               <Button
                 variant={"ghost"}
                 className={cn(
                   "aspect-square w-full justify-center gap-2",
                   isActive && "bg-accent",
-                  open && "aspect-auto h-auto justify-start",
+                  (open || isMobile) && "aspect-auto h-auto justify-start",
                 )}
               >
                 <item.icon size={16} />
                 <span
                   className={cn(
                     "hidden opacity-0 transition-all",
-                    open && "block opacity-100",
+                    (open || isMobile) && "block opacity-100",
                   )}
                 >
                   {item.label}

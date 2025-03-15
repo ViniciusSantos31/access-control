@@ -19,7 +19,7 @@ import { useTheme } from "next-themes";
 
 export const UserDropdown = () => {
   const { setTheme } = useTheme();
-  const { open } = useSidebar();
+  const { open, isMobile } = useSidebar();
 
   return (
     <DropdownMenu>
@@ -28,7 +28,7 @@ export const UserDropdown = () => {
           variant={"ghost"}
           className={cn(
             "flex w-full flex-1 justify-center gap-2 px-2",
-            open && "justify-start",
+            (open || isMobile) && "justify-start",
           )}
         >
           <Avatar>
@@ -41,7 +41,7 @@ export const UserDropdown = () => {
           <p
             className={cn(
               "hidden opacity-0 transition-all",
-              open && "block opacity-100",
+              (open || isMobile) && "block opacity-100",
             )}
           >
             Vini Santos

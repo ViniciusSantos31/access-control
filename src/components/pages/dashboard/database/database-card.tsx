@@ -12,8 +12,8 @@ type ActionCardProps = {
 const cardColorStyles =
   "bg-muted/50 border-muted-foreground/20 border cursor-pointer transition-all hover:brightness-95 dark:hover:brightness-125";
 
-const cardVariants = cva([
-  "aspect-square max-h-[250px] w-[250px] min-w-[250px] flex flex-1 items-center justify-center rounded lg:flex-none 2xl:flex-1 relative overflow-hidden outline-none",
+export const cardVariants = cva([
+  "aspect-square max-h-[250px] min-w-[250px] flex flex-1 items-center justify-center rounded 2xl:flex-1 relative overflow-hidden outline-none",
 ]);
 
 export const ActionCard = ({

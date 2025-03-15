@@ -13,7 +13,7 @@ import {
 } from "../ui/sidebar";
 
 export const AppSidebar = () => {
-  const { open } = useSidebar();
+  const { open, isMobile } = useSidebar();
 
   return (
     <Sidebar collapsible="icon">
@@ -21,13 +21,13 @@ export const AppSidebar = () => {
         <div
           className={cn(
             "border-muted flex w-full items-center justify-center gap-2 border-b p-0 py-6",
-            open && "p-6",
+            (open || isMobile) && "p-6",
           )}
         >
           <span
             className={cn(
               "hidden text-2xl font-bold opacity-0 transition-opacity",
-              open && "flex opacity-100",
+              (open || isMobile) && "flex opacity-100",
             )}
           >
             Access
@@ -35,7 +35,7 @@ export const AppSidebar = () => {
           <span
             className={cn(
               "border-foreground scale-75 rotate-0 rounded-md border-2 p-1 px-3 py-2 transition-transform",
-              open && "scale-100 rotate-12",
+              (open || isMobile) && "scale-100 rotate-12",
             )}
           >
             CTRL
