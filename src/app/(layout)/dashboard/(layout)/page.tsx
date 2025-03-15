@@ -11,7 +11,7 @@ export default async function DashboardPage() {
   return (
     <>
       <PageTitle title="Dashboard" />
-      <section className="flex w-full flex-wrap gap-3">
+      <section className="grid flex-1 auto-rows-max grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4 lg:gap-5 xl:flex">
         <ConnectDatabaseDialog>
           <ActionCard
             title="Conectar novo banco de dados"
