@@ -7,9 +7,9 @@ type DashboardLayoutProps = {
 
 export default function DashboardLayout({ children }: DashboardLayoutProps) {
   return (
-    <div className="flex h-screen w-full overflow-hidden">
+    <div className="flex h-dvh w-full overflow-hidden">
       <AppSidebar />
-      <main className="flex h-full w-full flex-col gap-2 overflow-auto p-6">
+      <main className="flex h-full w-full flex-col gap-2 overflow-auto">
         {children}
       </main>
     </div>
