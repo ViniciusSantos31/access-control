@@ -9,15 +9,12 @@ type ActionCardProps = {
   icon: LucideIcon;
 };
 
-const cardVariants = cva(
-  cn(
-    "bg-muted/50 border-muted-foreground/20 border",
-    "aspect-square max-h-[250px] w-[250px] min-w-[250px]",
-    "flex flex-1 items-center justify-center rounded lg:flex-none 2xl:flex-1",
-    "relative overflow-hidden outline-none",
-    "cursor-pointer transition-all hover:brightness-95 dark:hover:brightness-125",
-  ),
-);
+const cardColorStyles =
+  "bg-muted/50 border-muted-foreground/20 border cursor-pointer transition-all hover:brightness-95 dark:hover:brightness-125";
+
+const cardVariants = cva([
+  "aspect-square max-h-[250px] w-[250px] min-w-[250px] flex flex-1 items-center justify-center rounded lg:flex-none 2xl:flex-1 relative overflow-hidden outline-none",
+]);
 
 export const ActionCard = ({
   title,
@@ -25,7 +22,7 @@ export const ActionCard = ({
   icon: Icon,
 }: ActionCardProps) => {
   return (
-    <button className={cn(cardVariants())}>
+    <button className={cn(cardVariants(), cardColorStyles)}>
       <Icon className="size-8" />
       <div className="from-background/80 absolute bottom-0 left-0 w-full bg-gradient-to-t p-3 text-left">
         <p className="font-title text-sm font-semibold">{title}</p>
