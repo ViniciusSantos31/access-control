@@ -1,35 +1,15 @@
-"use client";
-
 import { ConnectDatabaseDialog } from "@/components/pages/dashboard/database/connect-database-dialog";
 import {
   ActionCard,
   LinkActionCard,
 } from "@/components/pages/dashboard/database/database-card";
-import { Button } from "@/components/ui/button";
-import { useSidebar } from "@/components/ui/sidebar";
-import {
-  DatabaseZap,
-  FolderKey,
-  PanelLeft,
-  UserCog,
-  UsersRound,
-} from "lucide-react";
+import { PageTitle } from "@/components/shared/page-title";
+import { DatabaseZap, FolderKey, UserCog, UsersRound } from "lucide-react";
 
 export default function DashboardPage() {
-  const { toggleSidebar } = useSidebar();
-
   return (
     <>
-      <div className="mb-6 flex items-center justify-start gap-2">
-        <Button
-          variant={"ghost"}
-          className="!aspect-square"
-          onClick={toggleSidebar}
-        >
-          <PanelLeft size={32} className="!size-5" />
-        </Button>
-        <h1 className="font-title text-4xl font-bold">Dashboard</h1>
-      </div>
+      <PageTitle title="Dashboard" />
       <section className="flex w-full flex-wrap gap-3">
         <ConnectDatabaseDialog>
           <ActionCard
