@@ -1,18 +1,19 @@
 import { ThemeProvider } from "@/components/shared/theme-provider";
+import { SidebarProvider } from "@/components/ui/sidebar";
 import { cn } from "@/lib/utils";
 import type { Metadata } from "next";
 import { Nunito_Sans } from "next/font/google";
 import "../styles/globals.css";
 
 const fontSans = Nunito_Sans({
-  variable: '--font-nunito-sans',
-  subsets: ['latin'],
-})
+  variable: "--font-nunito-sans",
+  subsets: ["latin"],
+});
 
 const fontTitle = Nunito_Sans({
-  variable: '--font-nunito-title',
-  subsets: ['latin'],
-})
+  variable: "--font-nunito-title",
+  subsets: ["latin"],
+});
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -30,7 +31,7 @@ export default function RootLayout({
         className={cn(
           "bg-background flex min-h-screen font-sans antialiased",
           fontSans.variable,
-          fontTitle.variable
+          fontTitle.variable,
         )}
       >
         <ThemeProvider
@@ -39,7 +40,7 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          {children}
+          <SidebarProvider>{children}</SidebarProvider>
         </ThemeProvider>
       </body>
     </html>

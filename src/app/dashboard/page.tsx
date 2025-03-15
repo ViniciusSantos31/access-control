@@ -3,12 +3,13 @@ import {
   ActionCard,
   LinkActionCard,
 } from "@/components/pages/dashboard/database/database-card";
+import { PageTitle } from "@/components/shared/page-title";
 import { DatabaseZap, FolderKey, UserCog, UsersRound } from "lucide-react";
 
 export default function DashboardPage() {
   return (
     <>
-      <h1 className="font-title mb-6 text-4xl font-bold">Dashboard</h1>
+      <PageTitle title="Dashboard" />
       <section className="flex w-full flex-wrap gap-3">
         <ConnectDatabaseDialog>
           <ActionCard

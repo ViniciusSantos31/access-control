@@ -22,7 +22,7 @@ export const ActionCard = ({
   icon: Icon,
 }: ActionCardProps) => {
   return (
-    <button className={cn(cardVariants(), cardColorStyles)}>
+    <button className={cn(cardVariants(), cardColorStyles)} type="button">
       <Icon className="size-8" />
       <div className="from-background/80 absolute bottom-0 left-0 w-full bg-gradient-to-t p-3 text-left">
         <p className="font-title text-sm font-semibold">{title}</p>
@@ -40,7 +40,7 @@ type LinkActionCardProps = ActionCardProps & {
 
 export const LinkActionCard = ({ href, ...props }: LinkActionCardProps) => {
   return (
-    <Link href={href} className={cardVariants()}>
+    <Link href={href} passHref className={cardVariants()}>
       <ActionCard {...props} />
     </Link>
   );

@@ -1,6 +1,8 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
+import { useSidebar } from "@/components/ui/sidebar";
+import { Tooltip } from "@/components/ui/tooltip";
 import { cn } from "@/lib/utils";
 import { Database, FolderKey, Gauge, UsersRound } from "lucide-react";
 import Link from "next/link";
@@ -8,6 +10,7 @@ import { usePathname } from "next/navigation";
 
 export const NavItems = () => {
   const pathname = usePathname();
+  const { open } = useSidebar();
 
   const navItems = [
     {
@@ -39,16 +42,26 @@ export const NavItems = () => {
 
         return (
           <Link key={item.href} href={item.href}>
-            <Button
-              variant={"ghost"}
-              className={cn(
-                "w-full justify-start gap-2",
-                isActive && "bg-accent",
-              )}
-            >
-              <item.icon size={16} />
-              <span>{item.label}</span>
-            </Button>
+            <Tooltip content={item.label} key={item.href} hiddenTooltip={open}>
+              <Button
+                variant={"ghost"}
+                className={cn(
+                  "aspect-square w-full justify-center gap-2",
+                  isActive && "bg-accent",
+                  open && "aspect-auto h-auto justify-start",
+                )}
+              >
+                <item.icon size={16} />
+                <span
+                  className={cn(
+                    "hidden opacity-0 transition-all",
+                    open && "block opacity-100",
+                  )}
+                >
+                  {item.label}
+                </span>
+              </Button>
+            </Tooltip>
           </Link>
         );
       })}

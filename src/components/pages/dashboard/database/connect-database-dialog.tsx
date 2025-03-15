@@ -1,3 +1,5 @@
+"use client";
+
 import { BaseDialogProps, Dialog } from "@/components/ui/dialog";
 import { ConnectDatabaseForm } from "./connect-database-form";
 

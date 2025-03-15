@@ -20,12 +20,12 @@ type DialogProps = BaseDialogProps & {
 };
 
 export const Dialog = ({
-  title,
+  children,
   content,
+  description,
   open,
   setOpen,
-  description,
-  children,
+  title,
 }: DialogProps) => {
   return (
     <DialogRoot open={open} onOpenChange={setOpen}>
