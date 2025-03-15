@@ -23,12 +23,14 @@ export default function DashboardPage() {
           icon={FolderKey}
           description="Gerencie as permissões dos usuários do seu banco de dados."
         />
-        <ActionCard
+        <LinkActionCard
+          href="/dashboard/users"
           title="Usuários"
           icon={UserCog}
           description="Gerencie os usuários do seu banco de dados."
         />
-        <ActionCard
+        <LinkActionCard
+          href="/dashboard/groups"
           title="Grupos"
           icon={UsersRound}
           description="Gerencie os grupos do seu banco de dados."

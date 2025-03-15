@@ -2,7 +2,7 @@
 
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
-import { Database, FolderKey, Gauge } from "lucide-react";
+import { Database, FolderKey, Gauge, UsersRound } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
@@ -22,8 +22,13 @@ export const NavItems = () => {
     },
     {
       label: "Permissões",
-      href: "/dashboard/profile",
+      href: "/dashboard/permissions",
       icon: FolderKey,
+    },
+    {
+      label: "Grupos",
+      href: "/dashboard/groups",
+      icon: UsersRound,
     },
   ];
 
