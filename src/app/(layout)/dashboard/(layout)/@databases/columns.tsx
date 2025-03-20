@@ -44,7 +44,7 @@ export const databasesColumns: ColumnDef<Database>[] = [
       > = {
         offline: {
           indicator: "bg-gray-500 animate-none",
-          text: "text-white",
+          text: "text-primary",
         },
         connected: {
           indicator: "bg-green-500 animate-none",

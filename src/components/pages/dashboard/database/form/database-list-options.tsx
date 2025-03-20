@@ -1,7 +1,8 @@
+"use client";
+
 import { Label } from "@/components/ui/label";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio/primitive";
 import { Fragment } from "react";
-import { CreateConnectionFormData } from "../connect-database-form";
 
 import {
   FormControl,
@@ -10,6 +11,7 @@ import {
   FormLabel,
   FormMessage,
 } from "@/components/ui/form";
+import { ConnectDatabaseFormData } from "@/validations/database/connect";
 import { useFormContext } from "react-hook-form";
 import {
   SiCockroachlabs,
@@ -53,13 +55,12 @@ const databaseOptions: DatabaseTypeOption[] = [
 ];
 
 export const DatabaseListOptions = () => {
-  const { control } = useFormContext<CreateConnectionFormData>();
+  const { control } = useFormContext<ConnectDatabaseFormData>();
 
   return (
     <FormField
       control={control}
       name="type"
-      rules={{ required: "Campo obrigatório" }}
       render={({ field }) => (
         <FormItem className="mt-4">
           <FormLabel>Selecione um banco de dados</FormLabel>

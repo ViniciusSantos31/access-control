@@ -12,6 +12,8 @@ import {
   useSidebar,
 } from "../ui/sidebar";
 
+import { PiGameControllerDuotone } from "react-icons/pi";
+
 export const AppSidebar = () => {
   const { open, isMobile } = useSidebar();
 
@@ -34,11 +36,11 @@ export const AppSidebar = () => {
           </span>
           <span
             className={cn(
-              "border-foreground scale-75 rotate-0 rounded-md border-2 p-1 px-3 py-2 transition-transform",
+              "scale-75 rotate-0 transition-transform",
               (open || isMobile) && "scale-100 rotate-12",
             )}
           >
-            CTRL
+            <PiGameControllerDuotone size={48} />
           </span>
         </div>
       </SidebarHeader>
@@ -48,7 +50,7 @@ export const AppSidebar = () => {
         </SidebarGroup>
       </SidebarContent>
       <SidebarFooter>
-        <div className="border-muted mt-auto flex w-full items-center justify-between gap-2 border-t py-4">
+        <div className="border-muted mt-auto flex w-full items-center justify-between gap-2 overflow-x-hidden border-t py-4">
           <UserDropdown />
         </div>
       </SidebarFooter>

@@ -14,7 +14,7 @@ export const TableEmptyState = ({
       <span className="flex flex-col space-y-1 text-center">
         <p className="font-title text-xl">{title}</p>
         {description && (
-          <desc className="text-muted-foreground">{description}</desc>
+          <span className="text-muted-foreground">{description}</span>
         )}
       </span>
       {children}
