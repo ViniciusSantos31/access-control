@@ -2,7 +2,7 @@
 
 import { ComponentProps } from "react";
 import { useFormContext } from "react-hook-form";
-import { Input } from ".";
+import { Select } from ".";
 import {
   FormControl,
   FormDescription,
@@ -12,13 +12,13 @@ import {
   FormMessage,
 } from "../form";
 
-type InputFieldProps = ComponentProps<typeof Input> & {
+type InputFieldProps = ComponentProps<typeof Select> & {
   name: string;
   label?: string;
   hint?: string;
 };
 
-export const InputField = ({
+export const SelectField = ({
   name,
   label,
   hint,
@@ -34,7 +34,7 @@ export const InputField = ({
         <FormItem>
           {label && <FormLabel>{label}</FormLabel>}
           <FormControl>
-            <Input {...props} {...field} />
+            <Select {...props} {...field} />
           </FormControl>
           {hint && <FormDescription>{hint}</FormDescription>}
           <FormMessage />
