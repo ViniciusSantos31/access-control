@@ -14,7 +14,7 @@ export const CardPreviewData = ({
   href,
 }: CardPreviewDataProps) => {
   return (
-    <div className="border-muted flex h-full w-full flex-col rounded-md border p-6">
+    <div className="border-muted flex h-full flex-1 flex-col rounded-md border p-6">
       <div className="flex w-full justify-between">
         <CardTitle title={title} />
         {href && (

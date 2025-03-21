@@ -13,7 +13,7 @@ export const InfoDashboardCard = ({
   icon: Icon,
 }: InfoDashboardCardProps) => {
   return (
-    <div className="border-muted flex h-fit w-full min-w-max flex-1 items-center rounded border p-4">
+    <div className="border-muted flex h-fit w-full min-w-max flex-1 items-center rounded border p-4 md:max-w-1/2">
       <div className="flex flex-1 flex-col">
         <span className="flex items-start gap-2">
           <Icon size={24} />

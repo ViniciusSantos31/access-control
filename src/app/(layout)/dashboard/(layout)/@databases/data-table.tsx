@@ -7,6 +7,9 @@ import {
   useReactTable,
 } from "@tanstack/react-table";
 
+import { ConnectDatabaseDialog } from "@/components/pages/dashboard/database/connect-database-dialog";
+import { TableEmptyState } from "@/components/shared/table-empty-state";
+import { Button } from "@/components/ui/button";
 import {
   Table,
   TableBody,
@@ -32,29 +35,29 @@ export function DatabasesDataTable<TData, TValue>({
   });
 
   return (
-    <div className="w-full rounded-md border">
-      <Table>
-        <TableHeader>
-          {table.getHeaderGroups().map((headerGroup) => (
-            <TableRow key={headerGroup.id}>
-              {headerGroup.headers.map((header) => {
-                return (
-                  <TableHead key={header.id}>
-                    {header.isPlaceholder
-                      ? null
-                      : flexRender(
-                          header.column.columnDef.header,
-                          header.getContext(),
-                        )}
-                  </TableHead>
-                );
-              })}
-            </TableRow>
-          ))}
-        </TableHeader>
-        <TableBody>
-          {table.getRowModel().rows?.length ? (
-            table.getRowModel().rows.map((row) => (
+    <div className="w-full flex-1 rounded-md border">
+      {data.length ? (
+        <Table>
+          <TableHeader>
+            {table.getHeaderGroups().map((headerGroup) => (
+              <TableRow key={headerGroup.id}>
+                {headerGroup.headers.map((header) => {
+                  return (
+                    <TableHead key={header.id}>
+                      {header.isPlaceholder
+                        ? null
+                        : flexRender(
+                            header.column.columnDef.header,
+                            header.getContext(),
+                          )}
+                    </TableHead>
+                  );
+                })}
+              </TableRow>
+            ))}
+          </TableHeader>
+          <TableBody>
+            {table.getRowModel().rows.map((row) => (
               <TableRow
                 key={row.id}
                 data-state={row.getIsSelected() && "selected"}
@@ -65,16 +68,19 @@ export function DatabasesDataTable<TData, TValue>({
                   </TableCell>
                 ))}
               </TableRow>
-            ))
-          ) : (
-            <TableRow>
-              <TableCell colSpan={columns.length} className="h-24 text-center">
-                No results.
-              </TableCell>
-            </TableRow>
-          )}
-        </TableBody>
-      </Table>
+            ))}
+          </TableBody>
+        </Table>
+      ) : (
+        <TableEmptyState
+          title="Nenhum banco de dados conectado :("
+          description="Adicione um banco de dados para começar a usar o sistema."
+        >
+          <ConnectDatabaseDialog>
+            <Button>Conectar banco de dados</Button>
+          </ConnectDatabaseDialog>
+        </TableEmptyState>
+      )}
     </div>
   );
 }

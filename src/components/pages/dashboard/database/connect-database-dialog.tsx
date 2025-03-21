@@ -1,7 +1,7 @@
 "use client";
 
 import { BaseDialogProps, Dialog } from "@/components/ui/dialog";
-import { ConnectDatabaseForm } from "./connect-database-form";
+import { ConnectDatabaseForm } from "./form/connect-database-form";
 
 export const ConnectDatabaseDialog = (props: BaseDialogProps) => {
   return (

@@ -16,15 +16,6 @@ export type User = {
 
 export const columns: ColumnDef<User>[] = [
   {
-    accessorKey: "id",
-    cell(props) {
-      const id = props.getValue() as string;
-
-      return <span>{id}</span>;
-    },
-    header: "ID",
-  },
-  {
     accessorKey: "name",
     header: "Nome",
   },
