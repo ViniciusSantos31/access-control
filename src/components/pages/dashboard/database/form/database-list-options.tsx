@@ -66,7 +66,7 @@ export const DatabaseListOptions = () => {
           <FormLabel>Selecione um banco de dados</FormLabel>
           <FormControl>
             <RadioGroup {...field} onValueChange={field.onChange}>
-              <div className="grid w-full auto-rows-auto grid-cols-3 gap-3">
+              <div className="grid w-full auto-rows-auto grid-cols-2 gap-3 md:max-w-none md:grid-cols-3">
                 {databaseOptions.map((option) => (
                   <Fragment key={option.value}>
                     <div>
@@ -77,7 +77,7 @@ export const DatabaseListOptions = () => {
                       />
                       <Label
                         htmlFor={option.value}
-                        className="border-muted bg-background hover:bg-accent hover:text-accent-foreground peer-data-[state=checked]:border-primary [&:has([data-state=checked])]:border-primary flex aspect-square cursor-pointer flex-col items-center justify-center rounded-md border-2"
+                        className="border-muted bg-background hover:bg-accent hover:text-accent-foreground peer-data-[state=checked]:border-primary [&:has([data-state=checked])]:border-primary flex aspect-square h-full max-h-40 flex-1 cursor-pointer flex-col items-center justify-center rounded-md border-2 py-6 md:max-w-none"
                       >
                         {option.icon}
                         <p className="mt-2">{option.label}</p>

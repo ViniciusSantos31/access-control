@@ -5,6 +5,7 @@ import { useFormContext } from "react-hook-form";
 import { Input } from ".";
 import {
   FormControl,
+  FormDescription,
   FormField,
   FormItem,
   FormLabel,
@@ -14,19 +15,11 @@ import {
 type InputFieldProps = ComponentProps<typeof Input> & {
   name: string;
   label?: string;
-  mask?: (value: string) => string;
+  hint?: string;
 };
 
-export function InputField({ name, label, ...props }: InputFieldProps) {
-  const { control, setValue } = useFormContext();
-
-  const handleChangeValue = (value: string) => {
-    if (props.mask) {
-      return setValue(name, props.mask(value));
-    }
-
-    return setValue(name, value);
-  };
+export function InputField({ name, label, hint, ...props }: InputFieldProps) {
+  const { control } = useFormContext();
 
   return (
     <FormField
@@ -36,12 +29,9 @@ export function InputField({ name, label, ...props }: InputFieldProps) {
         <FormItem>
           {label && <FormLabel>{label}</FormLabel>}
           <FormControl>
-            <Input
-              {...props}
-              {...field}
-              onChange={(e) => handleChangeValue(e.target.value)}
-            />
+            <Input {...props} {...field} />
           </FormControl>
+          {hint && <FormDescription>{hint}</FormDescription>}
           <FormMessage />
         </FormItem>
       )}

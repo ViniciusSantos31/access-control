@@ -7,11 +7,11 @@ import {
   connectDatabaseFormSchema,
 } from "@/validations/database/connect";
 import { useForm } from "react-hook-form";
-import { DatabaseBasicInfo } from "./form/database-basic-info";
-import { DatabaseListOptions } from "./form/database-list-options";
+import { DatabaseBasicInfo } from "./database-basic-info";
+import { DatabaseListOptions } from "./database-list-options";
 
 import { yupResolver } from "@hookform/resolvers/yup";
-import { DatabaseResumeInfos } from "./form/database-resume-infos";
+import { DatabaseResumeInfos } from "./database-resume-infos";
 
 export const ConnectDatabaseForm = () => {
   const methods = useForm<ConnectDatabaseFormData>({
