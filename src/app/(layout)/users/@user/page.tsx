@@ -1,3 +1,3 @@
-export default function InterceptorDefault() {
+export default function InterceptorPage() {
   return null;
 }

@@ -1,5 +1,3 @@
-"use client";
-
 import { AddUserDialog } from "@/components/pages/dashboard/users/connect-database-dialog";
 import { UsersFilters } from "@/components/pages/dashboard/users/filters";
 import { UsersList } from "@/components/pages/dashboard/users/users-list";
