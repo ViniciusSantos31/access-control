@@ -5,6 +5,8 @@ import { Dialog } from "@/components/ui/dialog";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 
+export const dynamic = "force-dynamic";
+
 export default function PreviewUserModal() {
   const [open, setOpen] = useState(true);
   const router = useRouter();
@@ -26,5 +28,3 @@ export default function PreviewUserModal() {
     />
   );
 }
-
-export const dynamic = "force-dynamic";

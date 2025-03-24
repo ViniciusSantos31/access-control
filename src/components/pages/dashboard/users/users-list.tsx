@@ -26,7 +26,7 @@ const ListItem = () => {
       )}
     >
       <Link
-        href="/users/1"
+        href="/user/1"
         className="w-full"
       >
         <div
