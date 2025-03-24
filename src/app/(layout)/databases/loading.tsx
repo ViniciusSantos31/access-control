@@ -5,7 +5,6 @@ import { Skeleton } from "@/components/ui/skeleton";
 export default function LoadingDatabasesList() {
   return (
     <>
-      {/* {children} */}
       <PageTitle title="Banco de dados" />
       <div className="flex h-full w-full flex-col">
         <div className="border-muted mb-3 flex w-full flex-col items-end gap-3 rounded-md border px-3 py-2">

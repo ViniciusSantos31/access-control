@@ -11,10 +11,9 @@ export type User = {
   id: string;
   name: string;
   email: string;
-  role: string;
 };
 
-export const columns: ColumnDef<User>[] = [
+export const usersColumns: ColumnDef<User>[] = [
   {
     accessorKey: "name",
     header: "Nome",
@@ -24,14 +23,14 @@ export const columns: ColumnDef<User>[] = [
     header: "Email",
   },
   {
-    accessorKey: "role",
-    header: "Função",
-  },
-  {
     accessorKey: "actions",
     cell() {
       return (
-        <Button variant={"ghost"} size={"icon"} className="ml-auto flex">
+        <Button
+          variant={"ghost"}
+          size={"icon"}
+          className="ml-auto flex"
+        >
           <MoreVertical size={16} />
         </Button>
       );

@@ -25,7 +25,7 @@ export const NavItems = () => {
     },
     {
       label: "Usuários",
-      href: "/dashboard/users",
+      href: "/users",
       icon: UserCog,
     },
     {

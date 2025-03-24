@@ -7,7 +7,9 @@ import {
   useReactTable,
 } from "@tanstack/react-table";
 
+import { AddUserDialog } from "@/components/pages/dashboard/users/connect-database-dialog";
 import { TableEmptyState } from "@/components/shared/table-empty-state";
+import { Button } from "@/components/ui/button";
 import {
   Table,
   TableBody,
@@ -33,7 +35,7 @@ export function UserDataTable<TData, TValue>({
   });
 
   return (
-    <div className="w-full rounded-md border">
+    <div className="h-full w-full rounded-md border">
       {data.length ? (
         <Table>
           <TableHeader>
@@ -70,7 +72,14 @@ export function UserDataTable<TData, TValue>({
           </TableBody>
         </Table>
       ) : (
-        <TableEmptyState title="Nenhum usuário cadastrado." />
+        <TableEmptyState
+          title="Nenhum usuário cadastrado."
+          description="Clique no botão abaixo para adicionar um novo usuário."
+        >
+          <AddUserDialog>
+            <Button>Adicionar usuário</Button>
+          </AddUserDialog>
+        </TableEmptyState>
       )}
     </div>
   );

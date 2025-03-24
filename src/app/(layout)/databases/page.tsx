@@ -8,7 +8,7 @@ import { databasesColumns } from "../dashboard/(layout)/@databases/columns";
 import { DatabasesDataTable } from "../dashboard/(layout)/@databases/data-table";
 
 export default async function DatabasesListPage() {
-  await new Promise((resolve) => setTimeout(resolve, 5000));
+  // await new Promise((resolve) => setTimeout(resolve, 5000));
 
   return (
     <>
