@@ -26,3 +26,5 @@ export default function PreviewUserModal() {
     />
   );
 }
+
+export const dynamic = "force-dynamic";
