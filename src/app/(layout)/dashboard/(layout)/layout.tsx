@@ -13,13 +13,13 @@ export default function DashboardLayout({
   users,
 }: DashboardLayoutProps) {
   return (
-    <main className="flex h-full w-full flex-col gap-2 overflow-auto p-6">
+    <>
       {children}
       <Separator className="my-5" />
-      <div className="flex h-full w-full flex-col gap-6 lg:flex-row">
+      <div className="flex h-full w-full flex-col gap-6 xl:flex-row">
         {databases}
         {users}
       </div>
-    </main>
+    </>
   );
 }

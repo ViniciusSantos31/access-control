@@ -1,7 +1,6 @@
 "use client";
 
 import { cn } from "@/lib/utils";
-import { NavItems } from "../pages/dashboard/nav-items";
 import { UserDropdown } from "../pages/dashboard/user-dropdown";
 import {
   Sidebar,
@@ -11,6 +10,7 @@ import {
   SidebarHeader,
   useSidebar,
 } from "../ui/sidebar";
+import { NavItems } from "./nav-items";
 
 import { PiGameControllerDuotone } from "react-icons/pi";
 

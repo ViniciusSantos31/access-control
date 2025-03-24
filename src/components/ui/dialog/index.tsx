@@ -1,3 +1,5 @@
+"use client";
+
 import {
   DialogContent,
   DialogDescription,
@@ -28,7 +30,10 @@ export const Dialog = ({
   title,
 }: DialogProps) => {
   return (
-    <DialogRoot open={open} onOpenChange={setOpen}>
+    <DialogRoot
+      open={open}
+      onOpenChange={setOpen}
+    >
       {children && <DialogTrigger asChild>{children}</DialogTrigger>}
       <DialogContent>
         <DialogHeader>

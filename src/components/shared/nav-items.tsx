@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { useSidebar } from "@/components/ui/sidebar";
 import { Tooltip } from "@/components/ui/tooltip";
 import { cn } from "@/lib/utils";
-import { Database, FolderKey, Gauge, UsersRound } from "lucide-react";
+import { Database, FolderKey, Gauge, UserCog, UsersRound } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
@@ -22,6 +22,11 @@ export const NavItems = () => {
       label: "Banco de dados",
       href: "/databases",
       icon: Database,
+    },
+    {
+      label: "Usuários",
+      href: "/users",
+      icon: UserCog,
     },
     {
       label: "Permissões",

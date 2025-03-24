@@ -10,19 +10,28 @@ type TooltipProps = ComponentProps<typeof TooltipRoot> & {
   children: React.ReactNode;
   content: string | number | React.ReactNode;
   hiddenTooltip?: boolean;
+  side?: "top" | "right" | "bottom" | "left";
 };
 
 export const Tooltip = ({
   content,
   children,
   hiddenTooltip = false,
+  side = "right",
   ...props
 }: TooltipProps) => {
   return (
     <TooltipProvider>
-      <TooltipRoot delayDuration={300} {...props}>
+      <TooltipRoot
+        delayDuration={300}
+        {...props}
+      >
         <TooltipTrigger asChild>{children}</TooltipTrigger>
-        <TooltipContent align="center" side="right" hidden={hiddenTooltip}>
+        <TooltipContent
+          align="center"
+          side={side}
+          hidden={hiddenTooltip}
+        >
           <p>{content}</p>
         </TooltipContent>
       </TooltipRoot>

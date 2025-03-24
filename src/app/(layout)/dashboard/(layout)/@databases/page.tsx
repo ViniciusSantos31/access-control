@@ -28,8 +28,14 @@ export default async function DatabasesPage() {
   );
 
   return (
-    <CardPreviewData title="Bancos de dados" href={"/databases"}>
-      <DatabasesDataTable columns={databasesColumns} data={data} />
+    <CardPreviewData
+      title="Bancos de dados"
+      href={"/databases"}
+    >
+      <DatabasesDataTable
+        columns={databasesColumns}
+        data={data}
+      />
     </CardPreviewData>
   );
 }

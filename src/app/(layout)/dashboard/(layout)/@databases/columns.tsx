@@ -1,5 +1,6 @@
 "use client";
 
+import { DatabaseActions } from "@/components/pages/dashboard/database/database-actions";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { ColumnDef } from "@tanstack/react-table";
@@ -74,9 +75,11 @@ export const databasesColumns: ColumnDef<Database>[] = [
     accessorKey: "actions",
     cell() {
       return (
-        <Button variant={"ghost"} size={"icon"} className="ml-auto flex">
-          <MoreVertical size={16} />
-        </Button>
+        <DatabaseActions>
+          <Button variant={"ghost"} size={"icon"} className="ml-auto flex">
+            <MoreVertical size={16} />
+          </Button>
+        </DatabaseActions>
       );
     },
     header() {
