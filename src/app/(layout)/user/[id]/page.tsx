@@ -8,11 +8,12 @@ export default async function UserDetailsPage({
 }: {
   params: Promise<{ id: string }>;
 }) {
-  const { id } = await params;
-
   return (
     <div>
-      <PageTitle title={`User ${id}`} />
+      <PageTitle
+        title="Detalhes"
+        withGoBack
+      />
       <div className="flex h-full w-full flex-col overflow-hidden">
         <UserDetails />
       </div>

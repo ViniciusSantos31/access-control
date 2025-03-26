@@ -23,6 +23,7 @@ export default function PreviewUserModal() {
       title="Visualizar usuário"
       description="Visualize os detalhes do usuário"
       content={<UserDetails />}
+      className="flex max-h-[calc(100dvh-8rem)] w-full flex-col md:w-[calc(100%-8rem)] md:max-w-none md:px-4"
     />
   );
 }

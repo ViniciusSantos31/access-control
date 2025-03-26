@@ -13,6 +13,7 @@ export type BaseDialogProps = {
   open?: boolean;
   setOpen?: (open: boolean) => void;
   children?: React.ReactNode;
+  className?: string;
 };
 
 type DialogProps = BaseDialogProps & {
@@ -28,6 +29,7 @@ export const Dialog = ({
   open,
   setOpen,
   title,
+  className,
 }: DialogProps) => {
   return (
     <DialogRoot
@@ -35,7 +37,7 @@ export const Dialog = ({
       onOpenChange={setOpen}
     >
       {children && <DialogTrigger asChild>{children}</DialogTrigger>}
-      <DialogContent>
+      <DialogContent className={className}>
         <DialogHeader>
           <DialogTitle>{title}</DialogTitle>
           {description && <DialogDescription>{description}</DialogDescription>}
