@@ -1,6 +1,10 @@
+"use client";
+
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import { Trash, UserX } from "lucide-react";
+import { DeleteUserDialog } from "./delete-user-dialog";
+import { DisableUserDialog } from "./disable-user-dialog";
 
 export const UserDangerArea = () => {
   return (
@@ -22,10 +26,12 @@ export const UserDangerArea = () => {
             Ao desativar o usuário, ele não poderá acessar o sistema.
           </p>
         </div>
-        <Button variant={"secondary"}>
-          <UserX />
-          Desativar usuário
-        </Button>
+        <DisableUserDialog asChild>
+          <Button variant={"secondary"}>
+            <UserX />
+            Desativar usuário
+          </Button>
+        </DisableUserDialog>
       </section>
       <Separator className="my-5" />
       <section className="flex w-full items-center">
@@ -35,10 +41,12 @@ export const UserDangerArea = () => {
             Ao excluir o usuário, todas as informações serão perdidas.
           </p>
         </div>
-        <Button variant={"destructive"}>
-          <Trash />
-          Excluir usuário
-        </Button>
+        <DeleteUserDialog asChild>
+          <Button variant={"destructive"}>
+            <Trash />
+            Excluir usuário
+          </Button>
+        </DeleteUserDialog>
       </section>
     </section>
   );

@@ -1,8 +1,10 @@
-import { Button } from "@/components/ui/button";
+import { buttonVariants } from "@/components/ui/button";
 import { Popover } from "@/components/ui/popover";
 import { Separator } from "@/components/ui/separator";
 import { cn } from "@/lib/utils";
 import { LucideIcon, Pen, Trash, UserX } from "lucide-react";
+import { DeleteUserDialog } from "./delete-user-dialog";
+import { DisableUserDialog } from "./disable-user-dialog";
 
 type UserActionProps = {
   children: React.ReactNode;
@@ -10,28 +12,25 @@ type UserActionProps = {
 
 const ActionItem = ({
   title,
-  action,
   icon: Icon,
   className,
 }: {
   title: string;
-  action?: () => void;
   icon: LucideIcon;
   className?: string;
 }) => {
   return (
-    <li className="w-full rounded-md">
-      <Button
-        variant={"ghost"}
-        className={cn("w-full min-w-32 justify-start text-left", className)}
-        onClick={action}
-      >
-        <Icon
-          size={16}
-          className="action-item-icon"
-        />
-        {title}
-      </Button>
+    <li
+      className={cn(
+        buttonVariants({ variant: "ghost", className }),
+        "w-full min-w-32 items-center justify-start rounded-md text-left",
+      )}
+    >
+      <Icon
+        size={16}
+        className="action-item-icon"
+      />
+      {title}
     </li>
   );
 };
@@ -45,16 +44,20 @@ export const UserActions = ({ children }: UserActionProps) => {
             title="Editar"
             icon={Pen}
           />
-          <ActionItem
-            title="Desativar"
-            icon={UserX}
-          />
+          <DisableUserDialog>
+            <ActionItem
+              title="Desativar"
+              icon={UserX}
+            />
+          </DisableUserDialog>
           <Separator />
-          <ActionItem
-            title="Excluir"
-            icon={Trash}
-            className="text-red-500"
-          />
+          <DeleteUserDialog>
+            <ActionItem
+              title="Excluir"
+              icon={Trash}
+              className="text-red-500"
+            />
+          </DeleteUserDialog>
         </ul>
       }
     >

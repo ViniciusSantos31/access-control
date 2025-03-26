@@ -20,19 +20,19 @@ export default async function DashboardPage() {
           />
         </ConnectDatabaseDialog>
         <LinkActionCard
-          href="/dashboard/permissions"
+          href="/permissions"
           title="Permissões"
           icon={FolderKey}
           description="Gerencie as permissões dos usuários do seu banco de dados."
         />
         <LinkActionCard
-          href="/dashboard/users"
+          href="/users"
           title="Usuários"
           icon={UserCog}
           description="Gerencie os usuários do seu banco de dados."
         />
         <LinkActionCard
-          href="/dashboard/groups"
+          href="/groups"
           title="Grupos"
           icon={UsersRound}
           description="Gerencie os grupos do seu banco de dados."
