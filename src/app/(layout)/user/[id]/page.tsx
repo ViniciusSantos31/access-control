@@ -3,11 +3,7 @@ import { PageTitle } from "@/components/shared/page-title";
 
 export const dynamic = "force-dynamic";
 
-export default async function UserDetailsPage({
-  params,
-}: {
-  params: Promise<{ id: string }>;
-}) {
+export default async function UserDetailsPage() {
   return (
     <div>
       <PageTitle
