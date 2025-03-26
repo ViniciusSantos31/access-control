@@ -3,16 +3,13 @@ import { PageTitle } from "@/components/shared/page-title";
 
 export const dynamic = "force-dynamic";
 
-export default async function UserDetailsPage({
-  params,
-}: {
-  params: Promise<{ id: string }>;
-}) {
-  const { id } = await params;
-
+export default async function UserDetailsPage() {
   return (
     <div>
-      <PageTitle title={`User ${id}`} />
+      <PageTitle
+        title="Detalhes"
+        withGoBack
+      />
       <div className="flex h-full w-full flex-col overflow-hidden">
         <UserDetails />
       </div>

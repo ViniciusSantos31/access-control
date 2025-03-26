@@ -16,7 +16,7 @@ const ListViewContext = createContext<ListViewContextProps | undefined>(
 export const ListViewProvider: React.FC<{ children: ReactNode }> = ({
   children,
 }) => {
-  const [mode, setMode] = useState<ListViewMode>("grid");
+  const [mode, setMode] = useState<ListViewMode>("list");
 
   return (
     <ListViewContext.Provider value={{ mode, setMode }}>
