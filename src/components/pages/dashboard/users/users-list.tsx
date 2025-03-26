@@ -2,6 +2,7 @@
 
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
+import { Skeleton } from "@/components/ui/skeleton";
 import { useListView } from "@/contexts/list-view";
 import { cn } from "@/lib/utils";
 import { createHash } from "crypto";
@@ -22,6 +23,39 @@ const fetchUsers = async (): Promise<User[]> => {
     throw new Error("Failed to fetch users");
   }
   return response.json();
+};
+
+const ListItemSkeleton = () => {
+  const { mode } = useListView();
+
+  return (
+    <Skeleton
+      className={cn(
+        "bg-background hover:bg-accent relative mb-2 flex max-h-40 min-h-16 w-full cursor-pointer items-center rounded-md border px-4 py-3 transition-colors",
+        mode === "grid" && "mb-0 min-h-28 items-start py-4 pr-2",
+      )}
+    >
+      <div
+        className={cn(
+          "flex w-full items-center",
+          mode === "grid" && "flex-col items-start",
+        )}
+      >
+        <Avatar>
+          <AvatarFallback></AvatarFallback>
+        </Avatar>
+        <div
+          className={cn(
+            "ml-2 flex w-full flex-col",
+            mode === "grid" && "mt-2 ml-0",
+          )}
+        >
+          <Skeleton className="font-title mb-1 h-3 w-full max-w-32 rounded-none border-none text-sm font-bold" />
+          <Skeleton className="h-3 w-full max-w-64 rounded-none border-none font-sans text-sm" />
+        </div>
+      </div>
+    </Skeleton>
+  );
 };
 
 const ListItem = ({ user }: { user: User }) => {
@@ -68,10 +102,7 @@ const ListItem = ({ user }: { user: User }) => {
         </div>
       </Link>
       <UserActions>
-        <Button
-          className={cn("")}
-          variant={"ghost"}
-        >
+        <Button variant={"ghost"}>
           <MoreVertical />
         </Button>
       </UserActions>
@@ -112,6 +143,10 @@ export const UsersList = () => {
             user={user}
           />
         ))}
+        {users.length === 0 &&
+          Array.from({ length: 5 }).map((_, index) => (
+            <ListItemSkeleton key={index} />
+          ))}
       </ul>
     </div>
   );
