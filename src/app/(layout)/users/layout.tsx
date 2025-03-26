@@ -1,5 +1,3 @@
-"use client";
-
 import { ListViewProvider } from "@/contexts/list-view";
 
 export default function UsersLayout({
