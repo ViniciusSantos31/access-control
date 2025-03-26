@@ -16,12 +16,14 @@ export const UserDetailSection = ({
   data,
 }: UserDetailSectionProps) => {
   return (
-    <section className="border-muted mt-4 flex w-full flex-col gap-1 rounded-md border p-3">
+    <section className="border-muted mt-4 flex h-full w-full flex-col gap-1 rounded-md border p-3">
       <div className="mb-3 flex items-center justify-between">
         <h4 className="font-title text-lg font-semibold">{title}</h4>
-        <span className="text-muted-foreground text-xs">{`${count} ${title}`}</span>
+        <span className="text-muted-foreground text-xs">
+          {`${count} ${title}`}
+        </span>
       </div>
-      <ul className="flex flex-col gap-2">
+      <ul className="flex max-h-80 flex-col gap-2 overflow-y-auto">
         {data.map((item) => (
           <li
             className="flex w-full items-center justify-between rounded-md border px-3 py-2"

@@ -2,6 +2,7 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { Pen } from "lucide-react";
+import { UserDangerArea } from "./user-danger-area";
 import { UserDetailSection } from "./user-detail-section";
 
 type UserDetailsProps = {
@@ -10,7 +11,12 @@ type UserDetailsProps = {
 
 export const UserDetails = ({ className }: UserDetailsProps) => {
   return (
-    <main className={cn("flex max-h-full flex-col overflow-y-auto", className)}>
+    <main
+      className={cn(
+        "flex h-full max-h-full flex-col overflow-y-auto",
+        className,
+      )}
+    >
       <div className="flex w-full items-center gap-2 rounded-md border p-3">
         <Avatar>
           <AvatarImage />
@@ -37,7 +43,7 @@ export const UserDetails = ({ className }: UserDetailsProps) => {
           <p className="text-sm font-medium">********</p>
         </span>
       </section>
-      <div className="flex w-full flex-col md:flex-row md:gap-4">
+      <div className="mb-4 flex w-full flex-1 flex-col md:flex-row md:gap-4">
         <UserDetailSection
           count={3}
           data={[
@@ -59,6 +65,7 @@ export const UserDetails = ({ className }: UserDetailsProps) => {
           title="Grupos"
         />
       </div>
+      <UserDangerArea />
     </main>
   );
 };

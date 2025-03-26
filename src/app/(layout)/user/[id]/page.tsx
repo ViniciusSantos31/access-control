@@ -5,7 +5,7 @@ export const dynamic = "force-dynamic";
 
 export default async function UserDetailsPage() {
   return (
-    <div>
+    <>
       <PageTitle
         title="Detalhes"
         withGoBack
@@ -13,6 +13,6 @@ export default async function UserDetailsPage() {
       <div className="flex h-full w-full flex-col overflow-hidden">
         <UserDetails />
       </div>
-    </div>
+    </>
   );
 }
